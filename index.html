@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Speech Analysis</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Health Speech Analysis</h1>
+        <p>Speech transcription and exploratory audio measures</p>
+    </header>
+
+    <div class="container">
+        <!-- Upload Card -->
+        <div class="card" id="upload-card">
+            <div class="upload-area" id="drop-zone">
+                <span class="upload-icon">🎙️</span>
+                <p class="upload-text">Drop audio or video here</p>
+                <p class="upload-hint">Support WAV, MP3, MP4, etc.</p>
+                <input type="file" id="file-input" accept="audio/*,video/*">
+            </div>
+            <div id="file-info" class="file-info-container" style="display:none;">
+                <p id="filename-display" class="filename-display"></p>
+                <p id="filesize-display" class="filesize-display"></p>
+                <button class="btn" id="analyze-btn">Start Analysis</button>
+            </div>
+        </div>
+
+        <!-- Status Panel -->
+        <div class="card status-panel" id="status-panel" style="display:none;">
+            <h2 id="status-text">Processing Session...</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p class="estimate-text" id="estimate-display">Estimated time: calculating...</p>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results-area" style="display:none;">
+            <div class="card">
+                <div class="section-title">
+                    <span>Measures</span>
+                    <span id="actual-time-display" class="badge"></span>
+                </div>
+                <div id="metrics-container"></div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Transcript</div>
+                <div class="transcript-container" id="transcript-content"></div>
+            </div>
+
+            <button class="btn btn-outline" onclick="location.reload()">Analyze Another File</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
